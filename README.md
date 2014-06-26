@@ -14,5 +14,5 @@ Application
   
 Web Plataform
 =============
-  This plataform is also available at http://tmarquesdasilva-001-site1.smarterasp.net/ChinookMVC/
+  This plataform is also available at http://tmarquesdasilva-001-site1.smarterasp.net/ChinookMVC/ <br/>
   Made in ASP MVC 4
