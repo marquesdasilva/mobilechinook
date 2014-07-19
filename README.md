@@ -3,6 +3,10 @@ Mobile Chinook
 
 jQuery Mobile Phonegap Application
 
+Screenshots
+=============
+![alt tag](https://github.com/marquesdasilva/mobilechinook/
+
 Database
 =============
   http://chinookdatabase.codeplex.com modified
