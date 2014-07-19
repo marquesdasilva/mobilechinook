@@ -1,0 +1,15 @@
+﻿#owl-demo_ {
+    margin: -1em;
+    width:110%;
+}
+        
+#owl-demo_ .item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+        
+#owl-demo_ .item img:hover {
+    cursor:pointer;
+}

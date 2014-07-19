@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
+
+    <link rel="stylesheet" href="css/jquerymobile/jquery.mobile-1.4.2.css" />
+    <link rel="stylesheet" href="css/mycss/myCSS.css" />
+    <link rel="stylesheet" href="css/common/error.css" />
+  
+    <style>
+        .ui-listview > .ui-li-divider {
+            padding: 1em 1.143em;
+        }
+    </style>
+</head>
+<body>
+    <section id="albumPage" data-role="page" data-theme='b'>
+        <div data-role="panel" id="albumPanel" data-theme="b"  data-swipe-close="false" data-dismissible="true">
+            <div data-role="controlgroup" data-type="vertical" data-mini="true" data-theme="b">
+                <a href="" data-rel="close" class="ui-btn ui-icon-bullets ui-btn-icon-right" style="color:orange;"><em>C</em> H I N<em> O O</em> K &nbsp;D B</a>
+                <ul data-role="listview">
+                    <li data-role="list-divider">Application</li>
+                    <li><a href="./home.html" data-rel="close" class="ui-btn ui-icon-home ui-btn-icon-left" style="text-align:left;"><span style="padding-left:1.5em;">Home</span></a></li>
+                    <li><a href="search.html" class="ui-btn ui-icon-search ui-btn-icon-left"><span style="padding-left:1.5em;">Search</span></a></li>
+                    <li><a href="favourites.html" class="ui-btn ui-icon-star ui-btn-icon-left"><span style="padding-left:1.5em;">Favourites</span></a></li>
+                    <li><a href="chinookplataform.html" class="ui-btn ui-icon-info ui-btn-icon-left"><span style="padding-left:1.5em;">Chinook Plataform</span></a></li>
+                    <li><a href="contacts.html" class="ui-btn ui-icon-mail ui-btn-icon-left"><span style="padding-left:1.5em;">Contacts</span></a></li>
+                    <li><a id="exitAlbum" href="" class="ui-btn ui-icon-power ui-btn-icon-left"><span style="padding-left:1.5em;">Exit</span></a></li>
+                </ul>
+                <ul data-role="listview">
+                    <li data-role="list-divider">Refresh</li>
+                    <li><a href="" id="regreshPageAlbum" class="ui-btn ui-icon-refresh ui-btn-icon-left"><span id="" style="padding-left:1.5em;">Refresh Page</span></a></li>
+                </ul>
+                <ul data-role="listview">
+                    <li data-role="list-divider">Account</li>
+                    <li><a href="" id="panelAlbum" class="ui-btn ui-icon-user ui-btn-icon-left"><span id="panelAlbumText" style="padding-left:1.5em;">Tiago Silva</span></a></li>
+                </ul>
+            </div>
+        </div>
+        <!--class="center-wrapper"-->
+        <section id="page1Header" data-role="header" data-tap-toggle="false" data-position="fixed" data-theme='b'>
+            <a href="#albumPanel" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-nodisc-icon ui-corner-all ui-shadow">Panel</a>
+            <h1>
+                Chinook DB
+            </h1>
+            <a id="connectionIconAlbum" href="" class="ui-btn ui-icon-check ui-btn-icon-notext ui-nodisc-icon ui-corner-all ui-shadow">Panel</a>
+
+        </section>
+
+        <section id="album" data-role="main" class="ui-content">
+            <ul id="contentList" data-role="listview" data-inset="false" data-theme="b">
+                <li data-role="list-divider" style="background-color: #373737;">
+
+                </li>
+                <li data-mini="true" data-theme="b" data-icon="false">
+                    
+                </li>
+                <li data-theme="a" data-icon="false">
+ 
+                </li>
+                <li data-mini="true" data-theme="b">
+                   
+                </li>
+                <li data-theme="b" data-inset="false">
+
+                </li>
+                
+            </ul>
+
+            <div data-role="popup" id="popupImage" data-theme="b">
+            
+            </div>
+
+
+            <a id="serverError" href="#alertServerError" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all" data-position-to="window" style="display:none;"></a>
+            <div data-role="popup" id="alertServerError" data-theme="b">
+                <div data-role="header">
+                    <a href="" onclick="$('#alertServerError').css('display', 'none');" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                    <h1>Server <br />Error</h1>
+                </div>
+
+                <div data-role="content" data-theme="a">
+                    Transaction not successfully submited because a error occurred in server
+                    <br><br>
+                    <a href="" data-role="button" onclick="$('#alertServerError').css('display', 'none');">OK</a>
+                </div>
+            </div>
+
+            <a id="artistNotExists" href="#alertArtistNotExists" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all" data-position-to="window" style="display:none;"></a>
+            <div data-role="popup" id="alertArtistNotExists" data-theme="b">
+                <div data-role="header">
+                    <a href="" onclick="$('#alertArtistNotExists').css('display', 'none');" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                    <h1>Artist <br />Error</h1>
+                </div>
+
+                <div data-role="content" data-theme="a">
+                    Artist not exists anymore in the system
+                    <br><br>
+                    <a href="" data-role="button" onclick="$('#alertArtistNotExists').css('display', 'none');">OK</a>
+                </div>
+            </div>
+
+            <a id="albumNotExists" href="#alertAlbumNotExists" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all" data-position-to="window" style="display:none;"></a>
+            <div data-role="popup" id="alertAlbumNotExists" data-theme="b">
+                <div data-role="header">
+                    <a href="" onclick="$('#alertAlbumNotExists').css('display', 'none');" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                    <h1>Album <br />Error</h1>
+                </div>
+
+                <div data-role="content" data-theme="a">
+                    Album not exists anymore in the system
+                    <br><br>
+                    <a href="" data-role="button" onclick="$('#alertAlbumNotExists').css('display', 'none');">OK</a>
+                </div>
+            </div>
+
+            <a id="tracksCounter" href="#alertTracksCounter" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all" data-position-to="window" style="display:none;"></a>
+            <div data-role="popup" id="alertTracksCounter" data-theme="b">
+                <div data-role="header">
+                    <a href="" onclick="$('#alertTracksCounter').css('display', 'none');" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                    <h1>Tracks <br />Error</h1>
+                </div>
+
+                <div data-role="content" data-theme="a">
+                    At least one of the trcks no longer exists in the system
+                    <br><br>
+                    <a href="" data-role="button" onclick="$('#alertTracksCounter').css('display', 'none');">OK</a>
+                </div>
+            </div>
+
+            <a id="albumNotSync" href="#alertAlbumNotSync" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all" data-position-to="window" style="display:none;"></a>
+            <div data-role="popup" id="alertAlbumNotSync" data-theme="b">
+                <div data-role="header">
+                    <a href="" onclick="$('#alertAlbumNotSync').css('display', 'none');" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                    <h1>Sync Out<br />Album</h1>
+                </div>
+
+                <div data-role="content" data-theme="a">
+                    This album is in your favourites, but is not syncronized
+                    with the system. Please sync out your favourite albums
+                    <br><br>
+                    <a href="" data-role="button" onclick="$('#alertAlbumNotSync').css('display', 'none');">OK</a>
+                </div>
+            </div>
+            
+            <a id="timePlan" href="#alertTimePlan" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all" data-position-to="window" style="display:none;"></a>
+            <div data-role="popup" id="alertTimePlan" data-theme="b">
+                <div data-role="header">
+                    <a href="" onclick="$('#alertTimePlan').css('display', 'none');" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                    <h1>Account<br />Plan</h1>
+                </div>
+
+                <div data-role="content" data-theme="a">
+                    The synchronization of this album took place over the two months. Your plan does not allow
+                    save prices after this time. Prices will be updated
+                    <br><br>
+                    <a href="" data-role="button" onclick="$('#alertTimePlan').css('display', 'none');">OK</a>
+                </div>
+            </div>
+            
+            <a id="transactionSubmited" href="#alertTransactionSubmited" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all" data-position-to="window" style="display:none;"></a>
+            <div data-role="popup" id="alertTransactionSubmited" data-theme="b">
+                <div data-role="header">
+                    <a href="" onclick="$('#alertTransactionSubmited').css('display', 'none');" class=" ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                    <h1>Transaction <br />Submited</h1>
+                </div>
+
+                <div data-role="content" data-theme="a">
+                    Transaction successfully submited. Please check Chinook Plataform
+                    to complete payment role
+                    <br><br>
+                    <a href="" data-role="button" onclick="$('#alertTransactionSubmited').css('display', 'none'); var albumApp = new album.Chinnook(); albumApp.refreshAllAlbumContent();">OK</a>
+                </div>
+            </div>
+
+            <a id="mustbeAuthenticated" href="#alertmustbeAuthenticated" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all" data-position-to="window" style="display:none;"></a>
+            <div data-role="popup" id="alertmustbeAuthenticated" data-theme="b">
+                <div data-role="header">
+                    <a href="" onclick="$('#alertmustbeAuthenticated').css('display', 'none');" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                    <h1>Sign in </h1>
+                </div>
+
+                <div data-role="content" data-theme="a">
+                    You need to be signed to complete operation
+                    <br><br>
+                    <a href="" data-role="button" onclick="$('#alertmustbeAuthenticated').css('display', 'none');">OK</a>
+                </div>
+            </div>
+
+            <a id="mustbeOnlineMode" href="#alertmustbeOnlineMode" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all" data-position-to="window" style="display:none;"></a>
+            <div data-role="popup" id="alertmustbeOnlineMode" data-theme="b">
+                <div data-role="header">
+                    <a href="" onclick="$('#alertmustbeOnlineMode').css('display', 'none');" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                    <h1>Local mode </h1>
+                </div>
+
+                <div data-role="content" data-theme="a">
+                    You are running in local mode, you must be running in online mode to complete operation
+                    <br><br>
+                    <a href="" data-role="button" onclick="$('#alertmustbeOnlineMode').css('display', 'none');">OK</a>
+                </div>
+            </div>
+
+            <a id="anyTrackSelected" href="#alertAnyTrackSelected" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all" data-position-to="window" style="display:none;"></a>
+            <div data-role="popup" id="alertAnyTrackSelected" data-theme="b">
+                <div data-role="header">
+                    <a href="" onclick="$('#alertAnyTrackSelected').css('display', 'none');" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                    <h1>Nothing selected </h1>
+                </div>
+
+                <div data-role="content" data-theme="a">
+                    No unbuyed track selected
+                    <br><br>
+                    <a href="" data-role="button" onclick="$('#alertAnyTrackSelected').css('display', 'none');">OK</a>
+                </div>
+            </div>
+            
+        </section>
+
+
+        <footer data-role="footer" data-position="fixed" data-theme='b' class="center-wrapper">
+
+            <div data-role="navbar">
+                <ul>
+                    <li><a id="linkBuy" onclick="var albumApp = new album.Chinnook(); albumApp.buy();" href="#" data-icon="check">Buy</a></li>
+                </ul>
+            </div>
+            <a id="goBackLink" href="./home.html" class="ui-btn ui-icon-home ui-btn-icon-left" style="clear:both;float:right;margin-top:1.5%;">Home</a>
+ </footer>
+    </section>
+
+
+    <script type="text/javascript" src="js/cordova/cordova.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquerymobile/jquery.mobile-1.4.2.min.js"></script>
+
+    <script type="text/javascript" src="js/jqueryvalidate/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/home/owl.carousel.js"></script>
+    <script type="text/javascript" src="js/fastclick/fastclick.js"></script>
+
+    <script type="text/javascript" src="js/jsutils/jsUtils.js"></script>
+    <script type="text/javascript" src="js/commom/sessionLogin.js"></script>
+    <script type="text/javascript" src="js/commom/connection.js"></script>
+    <script type="text/javascript" src="js/commom/general.js"></script>
+
+    <script type="text/javascript" src="js/index/index.js"></script>
+    <script type="text/javascript" src="js/home/home.js"></script>
+    <script type="text/javascript" src="js/account/account.js"></script>
+    <script type="text/javascript" src="js/account/purchases.js"></script>
+    <script type="text/javascript" src="js/album/album.js"></script>
+    <script type="text/javascript" src="js/artist/artist.js"></script>
+    <script type="text/javascript" src="js/search/search.js"></script>
+    <script type="text/javascript" src="js/favourites/favourites.js"></script>
+    <script type="text/javascript" src="js/login/login.js"></script>
+    <script type="text/javascript" src="js/register/register.js"></script>
+    <script type="text/javascript" src="js/recoverpassword/recoverpassword.js"></script>
+    <script type="text/javascript" src="js/changepassword/changepassword.js"></script>
+    <script type="text/javascript" src="js/contacts/contacts.js"></script>
+    <script type="text/javascript" src="js/chinookplataform/chinookplataform.js"></script>
+
+</body>
+</html>

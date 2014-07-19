@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
+
+    <link rel="stylesheet" href="css/jquerymobile/jquery.mobile-1.4.2.css" />
+    <link rel="stylesheet" href="css/mycss/myCSS.css" />
+    <link rel="stylesheet" href="css/common/error.css" />
+  
+    <style>
+        .ui-listview > .ui-li-divider {
+            padding: 1em 1.143em;
+        }
+
+        th {
+            border-bottom: 1px solid #d6d6d6;
+        }
+
+        tr:nth-child(even) {
+            background: #e9e9e9;
+        }
+    </style>
+</head>
+<body>
+    <section id="purchasesPage" data-role="page" data-theme='b'>
+        <div data-role="panel" id="purchasesPanel" data-theme="b" data-swipe-close="false" data-dismissible="true">
+            <div data-role="controlgroup" data-type="vertical" data-mini="true" data-theme="b">
+                <a href="#" data-rel="close" class="ui-btn ui-icon-bullets ui-btn-icon-right" style="color:orange;"><em>C</em> H I N<em> O O</em> K &nbsp;D B</a>
+                <ul data-role="listview">
+                    <li data-role="list-divider">Application</li>
+                    <li><a href="./home.html" data-rel="close" class="ui-btn ui-icon-home ui-btn-icon-left" style="text-align:left;"><span style="padding-left:1.5em;">Home</span></a></li>
+                    <li><a href="search.html" class="ui-btn ui-icon-search ui-btn-icon-left"><span style="padding-left:1.5em;">Search</span></a></li>
+                    <li><a href="favourites.html" class="ui-btn ui-icon-star ui-btn-icon-left"><span style="padding-left:1.5em;">Favourites</span></a></li>
+                    <li><a href="chinookplataform.html" class="ui-btn ui-icon-info ui-btn-icon-left"><span style="padding-left:1.5em;">Chinook Plataform</span></a></li>
+                    <li><a href="contacts.html" class="ui-btn ui-icon-mail ui-btn-icon-left"><span style="padding-left:1.5em;">Contacts</span></a></li>
+                    <li><a id="exitContacts" href="#" class="ui-btn ui-icon-power ui-btn-icon-left"><span style="padding-left:1.5em;">Exit</span></a></li>
+                </ul>
+                <ul data-role="listview">
+                    <li data-role="list-divider">Refresh</li>
+                    <li><a href="#" id="regreshPagePurchases" class="ui-btn ui-icon-refresh ui-btn-icon-left"><span id="" style="padding-left:1.5em;">Refresh Page</span></a></li>
+                </ul>
+                <ul data-role="listview">
+                    <li data-role="list-divider">Account</li>
+                    <li><a href="#" id="panelPurchases" class="ui-btn ui-icon-user ui-btn-icon-left"><span id="panelPurchasesText" style="padding-left:1.5em;">Tiago Silva</span></a></li>
+                </ul>
+
+            </div>
+        </div>
+        <!--class="center-wrapper"-->
+        <section id="page1Header" data-role="header" data-tap-toggle="false" data-position="fixed" data-theme='b'>
+            <a href="#purchasesPanel" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-nodisc-icon ui-corner-all ui-shadow">Panel</a>
+            <h1>
+                Chinook DB
+            </h1>
+            <a id="connectionIconPurchases" href="#" class="ui-btn ui-icon-check ui-btn-icon-notext ui-nodisc-icon ui-corner-all ui-shadow">Panel</a>
+
+        </section>
+
+        <section id="album" data-role="main" class="ui-content">
+            <ul id="contentList" data-role="listview" data-inset="false" data-theme="b">
+                <li data-role="list-divider" style="background-color: #373737;">
+                    <div style="float:left;">Purchases</div>
+                    <div style="float:right;"><a href="#" style="margin-top:0;" class="ui-btn ui-shadow ui-corner-all ui-icon-shop ui-btn-icon-notext">Purchases</a></div>
+                    <br /><div id="userEmailAcountPurchases"><small id="userEmailAcountPurchases">username@user.com</small></div>
+                </li>
+                <li data-theme="a" data-icon="false">
+                    <ul id="infoContent" data-role="listview" data-inset="true" data-theme="a">
+                        <li data-role="list-divider" data-theme="b">Your Purchases</li>
+                        <li data-theme="a">
+                            <br />
+                            <div id="noPurchases" style="display:none;">
+                                No purchases found...
+                            </div>
+
+                            <div id="serverErrorZone" style="display:none;">
+                                Server error...
+                            </div>
+
+                            <div id="tableZone" style="display:none;">
+                                <table id="purchasesTable" data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow">
+                                    <thead>
+                                        <tr class="ui-bar-b">
+                                            <th data-priority="1">Album</th>
+                                            <th data-priority="5">Artist</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableBody">
+                                        <!--<tr>
+                                            <td>Black Album</td>
+                                            <td>Metallica</td>
+                                            <td><a href="#anylink" class="ui-btn ui-btn-inline ui-icon-search ui-btn-icon-notext ui-corner-all ui-shadow">Search</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Led Zeppelin I</td>
+                                            <td>Led Zeppelin</td>
+                                            <td><a href="#anylink" class="ui-btn ui-btn-inline ui-icon-search ui-btn-icon-notext ui-corner-all ui-shadow">Search</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Led Zeppelin II</td>
+                                            <td>Led Zeppelin</td>
+                                            <td><a href="#anylink" class="ui-btn ui-btn-inline ui-icon-search ui-btn-icon-notext ui-corner-all ui-shadow">Search</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vertigo</td>
+                                            <td>U2</td>
+                                            <td><a href="#anylink" class="ui-btn ui-btn-inline ui-icon-search ui-btn-icon-notext ui-corner-all ui-shadow">Search</a></td>
+                                        </tr>-->
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
+            
+           
+            <a id="serverError" href="#alertServerError" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all" data-position-to="window" style="display:none;"></a>
+            <div data-role="popup" id="alertServerError" data-theme="b">
+                <div data-role="header">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                    <h1>Server <br />Error</h1>
+                </div>
+
+                <div data-role="content" data-theme="a">
+                    Problem in server retrieving your purchases
+                    <br><br>
+                    <a href="#home" data-role="button" data-rel="back">OK</a>
+                </div>
+            </div>
+        </section>
+
+
+        <footer data-role="footer" data-position="fixed" data-theme='b' class="center-wrapper">
+            <a id="goBackLink" href="./home.html" class="ui-btn ui-icon-home ui-btn-icon-left" style="clear:both;float:right;margin-top:1.5%;">Home</a>
+  </footer>
+    </section>
+
+
+    <script type="text/javascript" src="js/cordova/cordova.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquerymobile/jquery.mobile-1.4.2.min.js"></script>
+
+    <script type="text/javascript" src="js/jqueryvalidate/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/home/owl.carousel.js"></script>
+    <script type="text/javascript" src="js/fastclick/fastclick.js"></script>
+
+    <script type="text/javascript" src="js/jsutils/jsUtils.js"></script>
+    <script type="text/javascript" src="js/commom/sessionLogin.js"></script>
+    <script type="text/javascript" src="js/commom/connection.js"></script>
+    <script type="text/javascript" src="js/commom/general.js"></script>
+
+    <script type="text/javascript" src="js/index/index.js"></script>
+    <script type="text/javascript" src="js/home/home.js"></script>
+    <script type="text/javascript" src="js/account/account.js"></script>
+    <script type="text/javascript" src="js/account/purchases.js"></script>
+    <script type="text/javascript" src="js/album/album.js"></script>
+    <script type="text/javascript" src="js/artist/artist.js"></script>
+    <script type="text/javascript" src="js/search/search.js"></script>
+    <script type="text/javascript" src="js/favourites/favourites.js"></script>
+    <script type="text/javascript" src="js/login/login.js"></script>
+    <script type="text/javascript" src="js/register/register.js"></script>
+    <script type="text/javascript" src="js/recoverpassword/recoverpassword.js"></script>
+    <script type="text/javascript" src="js/changepassword/changepassword.js"></script>
+    <script type="text/javascript" src="js/contacts/contacts.js"></script>
+    <script type="text/javascript" src="js/chinookplataform/chinookplataform.js"></script>
+
+</body>
+</html>
