@@ -5,7 +5,7 @@ jQuery Mobile Phonegap Application
 
 Screenshots
 =============
-![alt tag](https://github.com/marquesdasilva/mobilechinook/
+![alt tag](https://github.com/marquesdasilva/mobilechinook/blob/master/Screenshots/chinookmobilehome.png)
 
 Database
 =============
