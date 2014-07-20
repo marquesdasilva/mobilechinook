@@ -16,8 +16,8 @@ Database
   
 Application
 =============
-  Available to: android and windows phone <br/>
-  Tested in: windows phone 8 and android 4.1-4.4
+  Available to: android
+  Tested in:  android 4.1-4.4
   
 Web Plataform
 =============
